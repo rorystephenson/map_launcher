@@ -39,6 +39,7 @@ class MapLauncher {
     @required String title,
     String description,
     int zoom,
+    MapStyle mapStyle: MapStyle.standard,
   }) async {
     final url = getMapMarkerUrl(
       mapType: mapType,
@@ -55,6 +56,7 @@ class MapLauncher {
       'description': description,
       'latitude': coords.latitude.toString(),
       'longitude': coords.longitude.toString(),
+      'mapStyle': Utils.enumToString(mapStyle),
     };
     return _channel.invokeMethod('showMarker', args);
   }

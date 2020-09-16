@@ -24,6 +24,11 @@ enum DirectionsMode {
   bicycling,
 }
 
+enum MapStyle {
+  standard,
+  satellite,
+}
+
 class Coords {
   final double latitude;
   final double longitude;
@@ -54,6 +59,7 @@ class AvailableMap {
     @required String title,
     String description,
     int zoom,
+    MapStyle mapStyle,
   }) {
     return MapLauncher.showMarker(
       mapType: mapType,
@@ -61,6 +67,7 @@ class AvailableMap {
       title: title,
       description: description,
       zoom: zoom,
+      mapStyle: mapStyle,
     );
   }
 
